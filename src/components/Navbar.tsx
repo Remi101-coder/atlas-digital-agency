@@ -3,14 +3,15 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { X, Menu, ChevronDown } from "lucide-react";
 import { ServicesMegaMenu } from "./ServicesMegaMenu";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -79,9 +80,14 @@ export default function Navbar() {
 
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 z-10">
-              <span className="text-white font-unbounded font-bold text-lg tracking-wide">
-                ATLAS.
-              </span>
+              <Image
+                src="/atlas-navbar-logo-final.png"
+                alt="Atlas Digital Group"
+                width={140}
+                height={40}
+                className="h-11 w-auto"
+                priority
+              />
             </Link>
 
             {/* Desktop nav */}
@@ -121,7 +127,7 @@ export default function Navbar() {
             {/* Right side */}
             <div className="flex items-center gap-4">
               <Link
-                href="#contact"
+                href="/contact"
                 className="hidden lg:inline-flex items-center gap-2 bg-amber-400 text-slate-950 text-sm font-bold px-6 py-2.5 rounded-full hover:bg-amber-300 transition-colors"
               >
                 Get in touch
@@ -207,7 +213,7 @@ export default function Navbar() {
 
               <div className="mt-8">
                 <Link
-                  href="#contact"
+                  href="/contact"
                   className="block w-full text-center bg-amber-400 text-slate-950 font-bold py-4 rounded-full text-lg hover:bg-amber-300 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
