@@ -85,7 +85,7 @@ export default function Navbar() {
                 alt="Atlas Digital Group"
                 width={140}
                 height={40}
-                className="h-11 w-auto"
+                className="h-14 w-auto"
                 priority
               />
             </Link>
