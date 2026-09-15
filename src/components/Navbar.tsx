@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { X, Menu, ChevronDown } from "lucide-react";
+import { X, Menu, ChevronDown, Phone, MessageCircle } from "lucide-react";
 import { ServicesMegaMenu } from "./ServicesMegaMenu";
 
 const navItems = [
@@ -125,7 +125,22 @@ export default function Navbar() {
             </div>
 
             {/* Right side */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              {/* Placeholder contact pills — phone number and WhatsApp link TBD */}
+              <a
+                href="tel:"
+                className="hidden xl:inline-flex items-center gap-2 whitespace-nowrap border border-[#ddb375]/40 bg-transparent text-[#ddb375] text-xs font-semibold px-4 py-2 rounded-full hover:border-[#ddb375] transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 flex-shrink-0" />
+                +XX XXX XXX XXXX
+              </a>
+              <a
+                href="#"
+                className="hidden xl:inline-flex items-center gap-2 whitespace-nowrap border border-[#ddb375]/40 bg-transparent text-emerald-400 text-xs font-semibold px-4 py-2 rounded-full hover:border-[#ddb375] transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                WhatsApp us
+              </a>
               <Link
                 href="/contact"
                 className="hidden lg:inline-flex items-center gap-2 bg-amber-400 text-slate-950 text-sm font-bold px-6 py-2.5 rounded-full hover:bg-amber-300 transition-colors"

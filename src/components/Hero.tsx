@@ -3,7 +3,30 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Code2, BarChart3, Cog, Users } from "lucide-react";
+
+const serviceHighlights = [
+  {
+    icon: Code2,
+    title: "Web Development",
+    caption: "MODERN. SCALABLE. IMPACTFUL.",
+  },
+  {
+    icon: BarChart3,
+    title: "Digital Marketing",
+    caption: "MORE REACH. REAL RESULTS.",
+  },
+  {
+    icon: Cog,
+    title: "Automation & AI",
+    caption: "WORK SMARTER. GROW FASTER.",
+  },
+  {
+    icon: Users,
+    title: "Strategy & Consulting",
+    caption: "IDEAS. DIRECTION. PROGRESS.",
+  },
+];
 
 export default function Hero() {
   // Video only plays on desktop/tablet; mobile gets the static poster frame
@@ -63,16 +86,15 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Giant Monolithic Display Headline with Parent Signature Amber */}
+        {/* Giant Serif Headline */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="w-full relative"
         >
-          <h1 className="text-[clamp(3.75rem,14vw,11.5rem)] font-display font-black tracking-[-0.04em] text-[#ddb375] leading-[0.85] select-none uppercase">
-            <span>ATLAS</span>
-            <span className="text-white/30">.</span>
+          <h1 className="font-noto-serif text-[clamp(2.75rem,7vw,5.5rem)] font-bold tracking-[-0.02em] text-[#f5efe4] leading-[1.1]">
+            Ideas that move the world.
           </h1>
         </motion.div>
 
@@ -81,13 +103,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-6 sm:mt-8 max-w-4xl"
+          className="mt-6 sm:mt-8 max-w-3xl"
         >
-          <p className="font-editorial text-2xl sm:text-3xl md:text-5xl font-light text-white leading-[1.25] tracking-tight">
-            Built for ambitious brands that want to dominate the Web, scale revenue, and reclaim executive time.
-          </p>
-          <p className="mt-6 font-body text-base sm:text-lg md:text-xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed">
-            We unite bespoke web development, Digital Marketing, Agentic automation, and dedicated virtual support into high-performance growth systems.
+          <p className="font-body text-base sm:text-lg md:text-xl text-slate-300 font-light max-w-2xl mx-auto leading-relaxed">
+            We build websites, marketing systems and intelligent automation that help businesses grow. From stronger online visibility to practical AI solutions, we turn bold ideas into measurable progress.
           </p>
         </motion.div>
 
@@ -102,15 +121,36 @@ export default function Hero() {
             href="/contact"
             className="inline-flex items-center justify-center rounded-full bg-[#ddb375] px-8 py-3.5 text-sm font-bold text-slate-950 uppercase tracking-[0.2em] hover:bg-[#e6c698] hover:text-slate-950 transition-all shadow-lg shadow-[#ddb375]/20 group"
           >
-            <span>Book A Free Consultation</span>
-            <ArrowUpRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <span>Book a Consultation</span>
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
           </Link>
           <Link
             href="#services"
-            className="inline-flex items-center justify-center rounded-full border border-[#ddb375]/30 bg-[#ddb375]/10 px-8 py-3.5 text-sm font-bold text-[#ddb375] uppercase tracking-[0.2em] hover:border-[#ddb375] hover:bg-[#ddb375]/20 transition-all"
+            className="inline-flex items-center justify-center rounded-full border border-[#ddb375]/30 bg-[#ddb375]/10 px-8 py-3.5 text-sm font-bold text-[#ddb375] uppercase tracking-[0.2em] hover:border-[#ddb375] hover:bg-[#ddb375]/20 transition-all group"
           >
-            Explore Capabilities
+            <span>Explore Our Services</span>
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-0.5 transition-transform" />
           </Link>
+        </motion.div>
+
+        {/* Service Highlights Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 w-full max-w-5xl"
+        >
+          {serviceHighlights.map(({ icon: Icon, title, caption }) => (
+            <div key={title} className="flex flex-col items-center text-center px-2">
+              <div className="w-14 h-14 rounded-full border border-[#ddb375]/40 bg-[#ddb375]/5 flex items-center justify-center text-[#ddb375] mb-3">
+                <Icon className="w-6 h-6" />
+              </div>
+              <span className="text-white font-unbounded text-sm font-bold">{title}</span>
+              <span className="mt-1.5 text-[10px] font-unbounded uppercase tracking-[0.15em] text-[#ddb375]/80">
+                {caption}
+              </span>
+            </div>
+          ))}
         </motion.div>
       </div>
 
