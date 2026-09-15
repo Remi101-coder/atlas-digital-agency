@@ -1,88 +1,42 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import ScrollReveal from "./ui/ScrollReveal";
 
 export default function Intro() {
-  const highlights = [
-    {
-      title: "Growth-led digital strategy",
-      desc: "We design and build digital systems that attract more customers, increase revenue, and support sustained growth.",
-    },
-    {
-      title: "Automation & support",
-      desc: "From AI chatbots to virtual assistants, we remove repetitive work so your team can focus on what matters most.",
-    },
-    {
-      title: "Trusted business partners",
-      desc: "We work with ambitious businesses worldwide to turn digital channels into reliable revenue engines.",
-    },
-  ];
-
   return (
-    <section id="about" className="relative w-full bg-slate-950 text-white py-24 z-10 overflow-hidden">
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[140%] aspect-square rounded-full border border-slate-700/30 -translate-y-[80%] pointer-events-none z-0" />
+    <section id="about-intro" className="relative w-full bg-slate-950 text-white py-10 sm:py-32 overflow-hidden border-t border-white/5">
+      {/* Background Ambience Circle */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-white/5 pointer-events-none" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 flex flex-col items-center">
-        <div className="w-[1px] h-20 bg-gradient-to-b from-transparent to-slate-600/60 mb-12" />
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
+        {/* Subtle Section Keyline */}
+        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent to-[#eeba00]/60 mb-8" />
 
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center font-barlow font-medium text-sm tracking-[0.2em] uppercase text-slate-400 mb-10"
-        >
-          About Atlas Digital Group
-        </motion.h2>
+        <ScrollReveal delay={0.1}>
+          <span className="eyebrow-tag block mb-6">
+            DIGITAL GROWTH GROUP · UK
+          </span>
+        </ScrollReveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl space-y-8"
-        >
-          <h2 className="font-noto-serif font-light text-4xl md:text-6xl text-white leading-tight">
-            We help businesses grow faster through high-performing websites, strategic marketing, automation, and virtual support.
+        <ScrollReveal delay={0.2}>
+          <h2 className="font-editorial text-2xl sm:text-3xl md:text-4xl font-light text-white leading-[1.2] tracking-tight">
+            We help ambitious businesses scale through high-performing websites, strategic digital marketing, intelligent automation, and dedicated support.
           </h2>
-          <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-light">
-            Atlas Digital Group is a full-service digital growth agency for businesses who want more revenue, more efficiency, and a better customer experience. We combine website excellence, targeted digital marketing, smart automation and virtual assistance into one growth system.
-          </p>
-        </motion.div>
+        </ScrollReveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 w-full"
-        >
-          {highlights.map((item) => (
-            <div key={item.title} className="bg-slate-900/40 p-8 rounded-3xl border border-slate-700/80">
-              <h3 className="text-amber-400 text-xs uppercase tracking-[0.2em] font-unbounded font-bold mb-4">
-                {item.title}
-              </h3>
-              <p className="text-slate-300 text-sm leading-relaxed font-light">
-                {item.desc}
-              </p>
+        <ScrollReveal delay={0.3}>
+          <div className="max-w-3xl space-y-6 text-slate-300 font-body text-base sm:text-lg md:text-xl font-light leading-relaxed">
+            <p>
+              Atlas Digital Group is a full-service agency built for business who want more revenue, more efficeiency, and better results. We optimize not just for isolated clicks, but for how your brand shows up across search, targeted digital marketing, smart automation, and virtual assistance into one growth system.
+            </p>
+            <div className="pt-2">
+              <span className="font-display font-bold text-sm sm:text-base tracking-[0.15em] text-[#eeba00] uppercase">
+                MAKE EVERY SEARCH COUNT. GROW WITH ATLAS.
+              </span>
             </div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-3xl text-center mt-16"
-        >
-          <p className="text-zinc-400 text-base md:text-lg leading-relaxed font-light">
-            We deliver growth for companies across web development, e-commerce, lead generation, local services, coaching, consulting, and SaaS. Our clients choose Atlas because we treat every project like a long-term growth partnership.
-          </p>
-        </motion.div>
-
-        <div className="w-[1px] h-20 bg-gradient-to-t from-transparent to-zinc-700/60 mt-16" />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

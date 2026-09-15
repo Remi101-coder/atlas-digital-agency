@@ -2,6 +2,9 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Mail, MessageCircle, Phone } from "lucide-react";
+import { contactDetails, socialLinks } from "@/lib/contact-links";
+import SocialIcon from "@/components/SocialIcon";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
@@ -12,7 +15,16 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thanks for reaching out! We will contact you shortly.");
+    const message = [
+      "New Atlas Digital Group enquiry",
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Company: ${formData.company || "Not provided"}`,
+      "",
+      "Project details:",
+      formData.message || "Not provided",
+    ].join("\n");
+    window.location.href = `https://wa.me/447355890373?text=${encodeURIComponent(message)}`;
     setFormData({ name: "", email: "", company: "", message: "" });
   };
 
@@ -41,13 +53,20 @@ export default function Contact() {
             </motion.p>
             <div className="space-y-4 text-sm text-slate-400 font-light">
               <div>
-                <strong className="text-white">Email:</strong> hello@atlasdigitalgroup.com
+                <strong className="text-white">Email:</strong>{" "}
+                <a href={`mailto:${contactDetails.email}`} className="transition-colors hover:text-amber-400">{contactDetails.email}</a>
               </div>
               <div>
-                <strong className="text-white">Phone:</strong> +1 (800) 123-4567
+                <strong className="text-white">Phone:</strong>{" "}
+                <a href="tel:" className="transition-colors hover:text-amber-400">+XX XXX XXX XXXX</a>
               </div>
               <div>
                 <strong className="text-white">Location:</strong> Remote-first agency serving businesses worldwide
+              </div>
+              <div className="flex flex-wrap gap-3 pt-2">
+                {socialLinks.map((social) => {
+                  return <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`Atlas Digital Group on ${social.name}`} title={social.name} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-colors hover:border-amber-400 hover:text-amber-400"><SocialIcon name={social.name} className="h-4 w-4" /></a>;
+                })}
               </div>
             </div>
           </div>
@@ -115,6 +134,15 @@ export default function Contact() {
               Book A Free Consultation
             </button>
           </motion.form>
+          <div className="lg:col-span-7 rounded-3xl border border-slate-700 bg-slate-900/40 p-5 text-slate-300">
+            <p className="mb-4 text-xs font-unbounded uppercase tracking-[0.2em] text-amber-400">Connect with Atlas</p>
+            <div className="flex flex-wrap gap-3">
+              <a href={`mailto:${contactDetails.email}`} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-amber-400 hover:text-amber-400"><Mail className="h-4 w-4" />Email</a>
+              <a href={contactDetails.phoneHref} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-amber-400 hover:text-amber-400"><Phone className="h-4 w-4" />Call</a>
+              <a href={contactDetails.whatsappHref} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-amber-400 hover:text-amber-400"><MessageCircle className="h-4 w-4" />WhatsApp</a>
+              {socialLinks.map((social) => <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`Atlas Digital Group on ${social.name}`} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-amber-400 hover:text-amber-400"><SocialIcon name={social.name} className="h-4 w-4" />{social.name}</a>)}
+            </div>
+          </div>
         </div>
       </div>
     </section>

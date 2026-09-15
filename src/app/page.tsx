@@ -8,12 +8,8 @@ import Automation from "@/components/Automation";
 import About from "@/components/About";
 import Luminr from "@/components/Luminr";
 import Services from "@/components/Services";
-import Sectors from "@/components/Sectors";
-import CaseStudies from "@/components/CaseStudies";
 import Contact from "@/components/Contact";
 import Awards from "@/components/Awards";
-import TeamPhoto from "@/components/TeamPhoto";
-import BlogRow from "@/components/BlogRow";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -46,23 +42,11 @@ export default function Home() {
       {/* 14 services catalog lists */}
       <Services />
 
-      {/* Sectors list layout */}
-      <Sectors />
-
-      {/* Case studies details card */}
-      <CaseStudies />
-
-      {/* Contact section for growth consultation */}
-      <Contact />
-
       {/* Awards grids list & testimonial */}
       <Awards />
 
-      {/* Great humans team backdrop */}
-      <TeamPhoto />
-
-      {/* Recent blog grid */}
-      <BlogRow />
+      {/* Contact section for growth consultation */}
+      <Contact />
 
       {/* Footers signups & maps */}
       <Footer />

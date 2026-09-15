@@ -59,28 +59,6 @@ export default function SearchChanged() {
             </motion.p>
 
             <div className="w-16 sm:w-20 h-[2px] bg-gradient-to-r from-[#eeba00] to-[#e46e00]" />
-
-            <div className="space-y-6">
-              {[
-                { stat: "92", label: "of clients see faster lead growth within 90 days.", delay: 0 },
-                { stat: "70", label: "average efficiency gain from automation and support.", delay: 0.1 },
-              ].map(({ stat, label, delay }) => (
-                <motion.div
-                  key={stat}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay }}
-                  className="flex items-center gap-6"
-                >
-                  <div className="flex-shrink-0 flex items-baseline text-[#eeba00] font-unbounded font-bold text-5xl md:text-6xl tracking-tight">
-                    {stat}
-                    <span className="text-xl md:text-2xl font-semibold">%</span>
-                  </div>
-                  <p className="text-zinc-600 text-sm md:text-base leading-snug">{label}</p>
-                </motion.div>
-              ))}
-            </div>
           </div>
 
           {/* Right column — circular video */}
@@ -99,7 +77,7 @@ export default function SearchChanged() {
                   muted
                   loop
                   playsInline
-                  preload="auto"
+                  preload="none"
                 />
               </div>
             </motion.div>

@@ -14,6 +14,8 @@ const config: Config = {
         'spanish-orange': '#e46e00',
         'jordy-blue': '#8db5f3',
         'alice-blue': '#f4f8fe',
+        // Single gold token shared by Hero + Navbar — matches the logo's gold.
+        'atlas-gold': '#ddb375',
       },
       fontFamily: {
         barlow: ['var(--font-barlow)', 'Barlow', 'sans-serif'],
@@ -21,8 +23,8 @@ const config: Config = {
         unbounded: ['var(--font-unbounded)', 'Unbounded', 'sans-serif'],
       },
       animation: {
-        'marquee': 'marquee 40s linear infinite',
-        'marquee-reverse': 'marquee-reverse 40s linear infinite',
+        'marquee': 'marquee 10s linear infinite',
+        'marquee-reverse': 'marquee-reverse 10s linear infinite',
       },
       keyframes: {
         marquee: {

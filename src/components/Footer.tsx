@@ -1,18 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { Send } from "lucide-react";
+import { Mail, MessageCircle, Phone } from "lucide-react";
+import { contactDetails, socialLinks } from "@/lib/contact-links";
+import SocialIcon from "@/components/SocialIcon";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(`Subscribed: ${email}`);
-    setEmail("");
-  };
-
   const serviceLinks = [
     { name: "Web Development", href: "#services" },
     { name: "SEO & Ads", href: "#services" },
@@ -23,69 +17,45 @@ export default function Footer() {
     { name: "Growth Consulting", href: "#services" },
   ];
 
-  const clientLinks = [
-    { name: "Startups", href: "#clients" },
-    { name: "Ecommerce", href: "#clients" },
-    { name: "Local Businesses", href: "#clients" },
-    { name: "Coaches & Consultants", href: "#clients" },
-    { name: "Service Brands", href: "#clients" },
-    { name: "Small Businesses", href: "#clients" },
-    { name: "Growing Companies", href: "#clients" },
-  ];
-
   return (
     <footer className="w-full bg-slate-950 text-white pt-24 pb-12 z-10 relative overflow-hidden border-t border-slate-800">
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#eeba00] via-[#e46e00] to-[#8db5f3]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-zinc-800/80 pb-12">
-          <div className="lg:col-span-6 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-noto-serif font-light text-white leading-tight">
-              Ready to grow with Atlas?
-            </h2>
+          <div className="lg:col-span-12 space-y-4">
             <div className="text-lg md:text-xl font-unbounded font-semibold text-amber-400">
               Reach us at{` `}
-              <a href="mailto:hello@atlasdigitalgroup.com" className="hover:text-white transition-colors">
-                hello@atlasdigitalgroup.com
+              <a href={`mailto:${contactDetails.email}`} className="hover:text-white transition-colors">
+                {contactDetails.email}
               </a>
+            </div>
+            <div className="flex flex-wrap gap-4 text-sm text-slate-300">
+              <a href={contactDetails.phoneHref} className="inline-flex items-center gap-2 transition-colors hover:text-amber-400"><Phone className="h-4 w-4" />{contactDetails.phone}</a>
+              <a href={contactDetails.whatsappHref} className="inline-flex items-center gap-2 transition-colors hover:text-amber-400"><MessageCircle className="h-4 w-4" />WhatsApp</a>
+              <a href={`mailto:${contactDetails.email}`} className="inline-flex items-center gap-2 transition-colors hover:text-amber-400"><Mail className="h-4 w-4" />Email us</a>
+            </div>
+            <div className="grid gap-x-6 gap-y-1 text-xs text-slate-500 sm:grid-cols-2">
+              <a href={`mailto:${contactDetails.marketingEmail}`} className="hover:text-amber-400">Marketing: {contactDetails.marketingEmail}</a>
+              <a href={`mailto:${contactDetails.webEmail}`} className="hover:text-amber-400">Web: {contactDetails.webEmail}</a>
+              <a href={`mailto:${contactDetails.automationEmail}`} className="hover:text-amber-400">Automation: {contactDetails.automationEmail}</a>
+              <a href={`mailto:${contactDetails.supportEmail}`} className="hover:text-amber-400">Support: {contactDetails.supportEmail}</a>
+              <a href={`mailto:${contactDetails.careersEmail}`} className="hover:text-amber-400">Careers: {contactDetails.careersEmail}</a>
+              <a href={`mailto:${contactDetails.privacyEmail}`} className="hover:text-amber-400">Privacy: {contactDetails.privacyEmail}</a>
             </div>
             <p className="text-slate-500 font-barlow text-xs leading-relaxed max-w-md">
               We respect your privacy and only use your contact details to plan your project, share relevant advice and support your business growth.
             </p>
           </div>
-
-          <div className="lg:col-span-6 w-full">
-            <div className="bg-slate-900/40 p-6 md:p-8 rounded-3xl border border-slate-700/80 space-y-4">
-              <h4 className="font-unbounded font-bold text-xs uppercase text-slate-400 tracking-wider">
-                BOOK A CONSULTATION
-              </h4>
-              <form onSubmit={handleSubscribe} className="relative flex items-center">
-                <input
-                  type="email"
-                  required
-                  placeholder="your@email.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full min-h-[48px] bg-slate-900 border border-slate-700 rounded-full px-6 py-3 text-white font-barlow text-sm focus:outline-none focus:border-amber-400 transition-colors pr-14"
-                />
-                <button
-                  type="submit"
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full bg-[#eeba00] flex items-center justify-center text-[#010b0c] hover:bg-white transition-colors"
-                >
-                  <Send className="w-4 h-4" />
-                </button>
-              </form>
-            </div>
-          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 pb-12 border-b border-zinc-800/80">
-          <div className="lg:col-span-4 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pb-12 border-b border-zinc-800/80">
+          <div className="space-y-4">
             <h5 className="font-unbounded font-bold text-[#eeba00] text-xs uppercase tracking-widest">
               NAVIGATION
             </h5>
             <div className="grid grid-cols-2 gap-2">
-              <Link href="#home" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
+              <Link href="/" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
                 Home
               </Link>
               <Link href="#about" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
@@ -94,19 +64,13 @@ export default function Footer() {
               <Link href="#services" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
                 Services
               </Link>
-              <Link href="#portfolio" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
-                Portfolio
-              </Link>
-              <Link href="#blog" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
-                Blog
-              </Link>
               <Link href="#contact" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
                 Contact
               </Link>
             </div>
           </div>
 
-          <div className="lg:col-span-4 space-y-4">
+          <div className="space-y-4">
             <h5 className="font-unbounded font-bold text-[#eeba00] text-xs uppercase tracking-widest">
               SERVICES
             </h5>
@@ -122,43 +86,26 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
-          <div className="lg:col-span-4 space-y-4">
-            <h5 className="font-unbounded font-bold text-[#eeba00] text-xs uppercase tracking-widest">
-              TARGET CLIENTS
-            </h5>
-            <div className="grid grid-cols-2 gap-2">
-              {clientLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-zinc-400 hover:text-white transition-colors text-sm font-light font-barlow"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-800 gap-4 text-slate-500 text-xs font-light">
           <div>
-            © 2026 Atlas Digital Group. All rights reserved.
+            © 2026 Atlas Digital Group. All rights reserved. · VAT No: 524398671 · Company No: 17321140
           </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Link href="#" className="hover:text-white transition-colors">
-              LinkedIn
-            </Link>
-            <span>•</span>
-            <Link href="#" className="hover:text-white transition-colors">
-              Instagram
-            </Link>
-            <span>•</span>
-            <Link href="#" className="hover:text-white transition-colors">
-              Twitter
-            </Link>
+          <div className="flex flex-wrap items-center gap-3">
+            {socialLinks.map((social) => {
+              return (
+                <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`Atlas Digital Group on ${social.name}`} title={social.name} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-colors hover:border-amber-400 hover:text-amber-400">
+                  <SocialIcon name={social.name} className="h-4 w-4" />
+                </a>
+              );
+            })}
           </div>
+        </div>
+
+        <div className="text-center text-[11px] text-slate-600 font-light">
+          ATLAS DIGITAL GROUP LTD — Company No. 17321140 — VAT GB524398671 — 19 Abigail House, 1 Richards Close, Harrow, England, HA1 2BX
         </div>
       </div>
     </footer>

@@ -4,21 +4,40 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { X, Menu, ChevronDown, Phone, MessageCircle } from "lucide-react";
+import { X, Menu, ChevronDown } from "lucide-react";
 import { ServicesMegaMenu } from "./ServicesMegaMenu";
 
 const navItems = [
-  { label: "About", href: "/about" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+
+    const rmq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(rmq.matches);
+    const rHandler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    rmq.addEventListener("change", rHandler);
+
+    return () => {
+      mq.removeEventListener("change", handler);
+      rmq.removeEventListener("change", rHandler);
+    };
+  }, []);
 
   // ↓ Ref on the entire <nav> so the mega menu can be absolutely
   //   positioned relative to the navbar, not the Services button
@@ -63,9 +82,9 @@ export default function Navbar() {
       {/* ── Nav bar ───────────────────────────────────────────────────────── */}
       <motion.nav
         ref={navRef}
-        initial={{ y: -80, opacity: 0 }}
+        initial={reducedMotion ? false : { y: -16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+        transition={{ duration: (isMobile ? 0.7 : 1) * 0.8, delay: (isMobile ? 0.7 : 1) * 2.2, ease: EASE }}
         // ↓ position:relative here so the mega menu's absolute positioning
         //   resolves to the full nav width, not the button container
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -76,7 +95,7 @@ export default function Navbar() {
       >
         {/* Inner row */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
-          <div className="flex items-center justify-between h-20 sm:h-[72px]">
+          <div className="flex items-center justify-between h-24 sm:h-[84px]">
 
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 z-10">
@@ -85,7 +104,7 @@ export default function Navbar() {
                 alt="Atlas Digital Group"
                 width={140}
                 height={40}
-                className="h-14 w-auto"
+                className="h-[67px] w-auto"
                 priority
               />
             </Link>
@@ -100,7 +119,7 @@ export default function Navbar() {
               >
                 <button
                   onClick={() => setServicesOpen((v) => !v)}
-                  className="flex items-center gap-1 text-white/90 hover:text-amber-400 text-sm font-medium tracking-wide transition-colors py-2"
+                  className="flex items-center gap-1 text-white/90 hover:text-atlas-gold text-sm font-medium tracking-wide transition-colors py-2"
                   aria-expanded={servicesOpen}
                   aria-haspopup="true"
                 >
@@ -117,7 +136,7 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-white/90 hover:text-amber-400 text-sm font-medium tracking-wide transition-colors py-2"
+                  className="text-white/90 hover:text-atlas-gold text-sm font-medium tracking-wide transition-colors py-2"
                 >
                   {item.label}
                 </Link>
@@ -126,24 +145,9 @@ export default function Navbar() {
 
             {/* Right side */}
             <div className="flex items-center gap-3">
-              {/* Placeholder contact pills — phone number and WhatsApp link TBD */}
-              <a
-                href="tel:"
-                className="hidden xl:inline-flex items-center gap-2 whitespace-nowrap border border-[#ddb375]/40 bg-transparent text-[#ddb375] text-xs font-semibold px-4 py-2 rounded-full hover:border-[#ddb375] transition-colors"
-              >
-                <Phone className="w-3.5 h-3.5 flex-shrink-0" />
-                +XX XXX XXX XXXX
-              </a>
-              <a
-                href="#"
-                className="hidden xl:inline-flex items-center gap-2 whitespace-nowrap border border-[#ddb375]/40 bg-transparent text-emerald-400 text-xs font-semibold px-4 py-2 rounded-full hover:border-[#ddb375] transition-colors"
-              >
-                <MessageCircle className="w-3.5 h-3.5 flex-shrink-0" />
-                WhatsApp us
-              </a>
               <Link
-                href="/contact"
-                className="hidden lg:inline-flex items-center gap-2 bg-amber-400 text-slate-950 text-sm font-bold px-6 py-2.5 rounded-full hover:bg-amber-300 transition-colors"
+                href="#contact"
+                className="hidden lg:inline-flex items-center gap-2 bg-atlas-gold text-slate-950 text-sm font-bold px-6 py-2.5 rounded-full hover:bg-[#e6c698] transition-colors"
               >
                 Get in touch
               </Link>
@@ -218,7 +222,7 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="block py-4 border-b border-white/10 text-white font-medium text-lg hover:text-amber-400 transition-colors"
+                    className="block py-4 border-b border-white/10 text-white font-medium text-lg hover:text-atlas-gold transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.label}
@@ -228,8 +232,8 @@ export default function Navbar() {
 
               <div className="mt-8">
                 <Link
-                  href="/contact"
-                  className="block w-full text-center bg-amber-400 text-slate-950 font-bold py-4 rounded-full text-lg hover:bg-amber-300 transition-colors"
+                  href="#contact"
+                  className="block w-full text-center bg-atlas-gold text-slate-950 font-bold py-4 rounded-full text-lg hover:bg-[#e6c698] transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   Get in touch

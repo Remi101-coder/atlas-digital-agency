@@ -45,7 +45,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@AtlasDigitalGrp",
     title: "Atlas Digital Group | Digital Growth Agency",
     description: "Atlas Digital Group helps businesses scale with high-performing websites, strategic digital marketing, automation, and virtual support solutions.",
   },
