@@ -66,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${barlow.variable} ${notoSerif.variable} ${unbounded.variable} antialiased bg-white text-rich-black font-barlow`}
+        className={`${barlow.variable} ${notoSerif.variable} ${unbounded.variable} antialiased font-barlow`}
       >
         {children}
       </body>
