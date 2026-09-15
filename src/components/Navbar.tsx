@@ -81,7 +81,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 z-10">
               <Image
-                src="/atlas-navbar-logo-final.png"
+                src="/atlas-navbar-logo-final.png?v=1"
                 alt="Atlas Digital Group"
                 width={140}
                 height={40}
