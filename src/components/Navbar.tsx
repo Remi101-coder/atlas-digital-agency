@@ -100,11 +100,11 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 z-10">
               <Image
-                src="/atlas-navbar-logo-final.png?v=1"
+                src="/atlas-logo-navbar.png?v=2"
                 alt="Atlas Digital Group"
-                width={140}
-                height={40}
-                className="h-[67px] w-auto"
+                width={86}
+                height={34}
+                className="h-[26px] md:h-[34px] w-auto object-contain"
                 priority
               />
             </Link>
