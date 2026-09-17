@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Awards() {
   return (
-    <section className="w-full bg-slate-950 text-white py-24 z-10 relative overflow-hidden border-t border-slate-800">
+    <section className="w-full bg-slate-950 text-atlas-cream py-24 z-10 relative overflow-hidden border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
           <motion.h2
@@ -13,7 +13,7 @@ export default function Awards() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-noto-serif font-light text-3xl md:text-5xl text-white"
+            className="font-noto-serif font-light text-3xl md:text-5xl text-atlas-cream"
           >
             What our clients say
           </motion.h2>
@@ -40,7 +40,7 @@ export default function Awards() {
               transition={{ duration: 0.8 }}
               className="lg:col-span-4 space-y-3 lg:border-l lg:border-zinc-800 lg:pl-8"
             >
-              <div className="font-unbounded font-semibold text-amber-400 text-sm uppercase tracking-wider">
+              <div className="font-unbounded font-semibold text-atlas-gold text-sm uppercase tracking-wider">
                 — MotiveX
               </div>
               <div className="text-slate-400 font-barlow text-xs uppercase tracking-widest">

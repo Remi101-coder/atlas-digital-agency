@@ -30,7 +30,7 @@ export default function Automation() {
             transition={{ duration: 0.7 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-white font-unbounded font-bold text-lg tracking-[0.1em] uppercase">
+              <span className="text-atlas-cream font-unbounded font-bold text-lg tracking-[0.1em] uppercase">
                 Automation
               </span>
             </div>
@@ -39,7 +39,7 @@ export default function Automation() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-white mb-6 font-unbounded font-black text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight uppercase"
+              className="text-atlas-cream mb-6 font-unbounded font-black text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight uppercase"
             >
               Automation that saves time and powers scalable growth.
             </motion.h2>
@@ -48,7 +48,7 @@ export default function Automation() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/60 text-base md:text-lg leading-relaxed mb-4 font-light"
+              className="text-atlas-cream/60 text-base md:text-lg leading-relaxed mb-4 font-light"
             >
               Atlas builds AI chatbots, CRM workflows and business automation that reduce manual work and support revenue growth.
             </motion.p>
@@ -57,7 +57,7 @@ export default function Automation() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-white/60 text-base md:text-lg leading-relaxed mb-8 font-light"
+              className="text-atlas-cream/60 text-base md:text-lg leading-relaxed mb-8 font-light"
             >
               Our automation solutions help teams stay focused on strategy while customer journeys and operations run more smoothly.
             </motion.p>
@@ -69,7 +69,7 @@ export default function Automation() {
             >
               <Link
                 href="#contact"
-                className="inline-flex items-center gap-2 bg-[#eeba00] text-[#010b0c] text-sm font-bold px-6 py-3 rounded-full hover:bg-white transition-colors font-unbounded"
+                className="inline-flex items-center gap-2 bg-atlas-gold text-[#010b0c] text-sm font-bold px-6 py-3 rounded-full hover:bg-white transition-colors font-unbounded"
               >
                 Explore automation
                 <ArrowUpRight className="w-4 h-4" />

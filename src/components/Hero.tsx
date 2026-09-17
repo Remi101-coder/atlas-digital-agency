@@ -258,7 +258,7 @@ export default function Hero() {
                 <div className="w-16 h-16 rounded-full border border-atlas-gold/40 bg-atlas-gold/5 flex items-center justify-center text-atlas-gold mb-3 transition-colors group-hover:border-atlas-gold">
                   <Icon className="w-7 h-7" />
                 </div>
-                <span className="text-white font-barlow text-[1.3rem] font-bold leading-tight">{title}</span>
+                <span className="text-atlas-cream font-barlow text-[1.3rem] font-bold leading-tight">{title}</span>
                 <span className="mt-1.5 font-barlow text-[0.8rem] uppercase tracking-[0.15em] text-atlas-gold/80 md:whitespace-nowrap">
                   {caption}
                 </span>

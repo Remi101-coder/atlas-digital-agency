@@ -14,8 +14,13 @@ const config: Config = {
         'spanish-orange': '#e46e00',
         'jordy-blue': '#8db5f3',
         'alice-blue': '#f4f8fe',
-        // Single gold token shared by Hero + Navbar — matches the logo's gold.
+        // Single gold token used for every accent/CTA/hover/border across the
+        // site — replaces the old bright amber-400/#eeba00 palette.
         'atlas-gold': '#ddb375',
+        'atlas-gold-light': '#e6c698',
+        // Warm cream for body/heading text on dark sections — replaces flat
+        // #FFFFFF everywhere except light-background sections.
+        'atlas-cream': '#EDE6DA',
       },
       fontFamily: {
         barlow: ['var(--font-barlow)', 'Barlow', 'sans-serif'],

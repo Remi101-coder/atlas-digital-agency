@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 
 interface Service {
@@ -44,17 +45,17 @@ const SERVICES_DATA: ServiceCategory[] = [
   },
   {
     id: "content",
-    title: "Content & Creative",
-    categoryHref: "/services/content-creative",
+    title: "Content & Creatives",
+    categoryHref: "/services/content-creatives",
     services: [
-      { name: "Content Creation & Copywriting", href: "/services/content-creative" },
-      { name: "Blog Writing & SEO Content", href: "/services/content-creative" },
-      { name: "Graphic Design & Branding", href: "/services/content-creative" },
-      { name: "Logo Design", href: "/services/content-creative" },
-      { name: "Marketing Materials Design", href: "/services/content-creative" },
-      { name: "Video Editing", href: "/services/content-creative" },
-      { name: "Social Media Video Production", href: "/services/content-creative" },
-      { name: "YouTube & TikTok Content Editing", href: "/services/content-creative" },
+      { name: "Content Creation & Copywriting", href: "/services/content-creatives" },
+      { name: "Blog Writing & SEO Content", href: "/services/content-creatives" },
+      { name: "Graphic Design & Branding", href: "/services/content-creatives" },
+      { name: "Logo Design", href: "/services/content-creatives" },
+      { name: "Marketing Materials Design", href: "/services/content-creatives" },
+      { name: "Video Editing", href: "/services/content-creatives" },
+      { name: "Social Media Video Production", href: "/services/content-creatives" },
+      { name: "YouTube & TikTok Content Editing", href: "/services/content-creatives" },
     ],
   },
   {
@@ -92,9 +93,11 @@ const SERVICES_DATA: ServiceCategory[] = [
 function ServiceCategoryColumn({
   category,
   onServiceClick,
+  isActive,
 }: {
   category: ServiceCategory;
   onServiceClick?: () => void;
+  isActive: boolean;
 }) {
   return (
     <div className="flex flex-col">
@@ -102,7 +105,9 @@ function ServiceCategoryColumn({
       <Link
         href={category.categoryHref}
         onClick={onServiceClick}
-        className="text-sm font-bold text-gray-900 mb-5 tracking-normal hover:text-amber-600 transition-colors"
+        className={`text-sm font-bold mb-5 tracking-normal transition-colors ${
+          isActive ? "text-atlas-gold" : "text-gray-900 hover:text-atlas-gold"
+        }`}
       >
         {category.title}
       </Link>
@@ -117,7 +122,7 @@ function ServiceCategoryColumn({
                 text-gray-700
                 font-normal
                 leading-snug
-                hover:text-amber-600
+                hover:text-atlas-gold
                 transition-colors
                 duration-150
               "
@@ -131,7 +136,7 @@ function ServiceCategoryColumn({
   );
 }
 
-function DesktopMegaMenu({ onClose }: { onClose: () => void }) {
+function DesktopMegaMenu({ onClose, pathname }: { onClose: () => void; pathname: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: -4 }}
@@ -161,6 +166,7 @@ function DesktopMegaMenu({ onClose }: { onClose: () => void }) {
               key={category.id}
               category={category}
               onServiceClick={onClose}
+              isActive={pathname === category.categoryHref}
             />
           ))}
         </div>
@@ -175,25 +181,27 @@ function MobileAccordion({
   category,
   isOpen,
   onToggle,
+  isActive,
 }: {
   category: ServiceCategory;
   isOpen: boolean;
   onToggle: () => void;
+  isActive: boolean;
 }) {
   return (
     <div className="border-b border-gray-200">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between py-4 text-left"
-        aria-expanded={isOpen}
-      >
-        <span className="font-bold text-gray-900 text-sm">{category.title}</span>
-        <ChevronDown
-          className={`w-4 h-4 text-gray-500 transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
-          }`}
-        />
-      </button>
+      <div className="w-full flex items-center justify-between py-4">
+        <Link href={category.categoryHref} className={`font-bold text-sm ${isActive ? "text-atlas-gold" : "text-gray-900"}`}>
+          {category.title}
+        </Link>
+        <button onClick={onToggle} aria-expanded={isOpen} className="p-2">
+          <ChevronDown
+            className={`w-4 h-4 text-gray-500 transition-transform duration-300 ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          />
+        </button>
+      </div>
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -208,7 +216,7 @@ function MobileAccordion({
                 <Link
                   key={service.name}
                   href={service.href}
-                  className="block text-sm text-gray-600 hover:text-amber-600 transition-colors"
+                  className="block text-sm text-gray-600 hover:text-atlas-gold transition-colors"
                 >
                   {service.name}
                 </Link>
@@ -221,7 +229,7 @@ function MobileAccordion({
   );
 }
 
-function MobileMegaMenu({ onClose }: { onClose: () => void }) {
+function MobileMegaMenu({ pathname }: { pathname: string }) {
   const [openCategories, setOpenCategories] = useState<Set<string>>(
     new Set([SERVICES_DATA[0].id])
   );
@@ -229,7 +237,11 @@ function MobileMegaMenu({ onClose }: { onClose: () => void }) {
   const toggleCategory = (id: string) => {
     setOpenCategories((prev) => {
       const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
       return next;
     });
   };
@@ -243,6 +255,7 @@ function MobileMegaMenu({ onClose }: { onClose: () => void }) {
             category={category}
             isOpen={openCategories.has(category.id)}
             onToggle={() => toggleCategory(category.id)}
+            isActive={pathname === category.categoryHref}
           />
         ))}
       </div>
@@ -259,6 +272,7 @@ interface ServicesMegaMenuProps {
 
 export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
   const [isMobile, setIsMobile] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024);
@@ -277,9 +291,9 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
   return (
     <AnimatePresence>
       {isOpen && (isMobile ? (
-        <MobileMegaMenu onClose={onClose} />
+        <MobileMegaMenu pathname={pathname} />
       ) : (
-        <DesktopMegaMenu onClose={onClose} />
+        <DesktopMegaMenu onClose={onClose} pathname={pathname} />
       ))}
     </AnimatePresence>
   );

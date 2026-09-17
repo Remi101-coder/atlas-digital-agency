@@ -16,7 +16,10 @@ export const contactDetails = {
   automationEmail: "automation@atlasdigitalgroup.co.uk",
   careersEmail: "careers@atlasdigitalgroup.co.uk",
   privacyEmail: "privacy@atlasdigitalgroup.co.uk",
-  phone: "+44 7355 890373",
-  phoneHref: "tel:+447355890373",
+  // Landline — the main published phone number. Distinct from the WhatsApp
+  // mobile number below; do not merge the two.
+  phone: "+44 20 3951 5886",
+  phoneHref: "tel:+442039515886",
+  // WhatsApp mobile number — different device/number from `phone` above.
   whatsappHref: "https://wa.me/447355890373",
 } as const;

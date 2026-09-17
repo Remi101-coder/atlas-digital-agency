@@ -27,11 +27,11 @@
 
 /* Premium Button Styling */
 .btn-primary {
-  @apply bg-amber-400 text-slate-950 px-8 py-3 rounded-full font-bold hover:bg-amber-300 transition-all duration-300 inline-block;
+  @apply bg-atlas-gold text-slate-950 px-8 py-3 rounded-full font-bold hover:bg-atlas-gold-light transition-all duration-300 inline-block;
 }
 
 .btn-secondary {
-  @apply border-2 border-amber-400 text-amber-400 px-8 py-3 rounded-full font-bold hover:bg-amber-400/10 transition-all duration-300 inline-block;
+  @apply border-2 border-atlas-gold text-atlas-gold px-8 py-3 rounded-full font-bold hover:bg-atlas-gold/10 transition-all duration-300 inline-block;
 }
 
 /* Extra utility classes for Atlas Digital Group styling */
@@ -70,7 +70,7 @@
 }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  background: linear-gradient(135deg, #ddb375 0%, #c9a06a 100%);
 }
 
 .dark-gradient {
@@ -87,12 +87,12 @@
 }
 
 .section-gold {
-  @apply bg-amber-400 text-slate-950;
+  @apply bg-atlas-gold text-slate-950;
 }
 
 /* Card Styling */
 .card-premium {
-  @apply bg-slate-900 rounded-2xl p-8 border border-slate-800 hover:border-amber-400/50 transition-all duration-300;
+  @apply bg-slate-900 rounded-2xl p-8 border border-slate-800 hover:border-atlas-gold/50 transition-all duration-300;
 }
 
 /* Smooth Transitions */

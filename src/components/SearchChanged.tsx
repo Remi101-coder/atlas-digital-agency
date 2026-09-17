@@ -26,7 +26,7 @@ export default function SearchChanged() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-7xl font-unbounded font-extrabold text-amber-400 mt-2 tracking-tighter"
+            className="text-4xl md:text-7xl font-unbounded font-extrabold text-atlas-gold mt-2 tracking-tighter"
           >
             Choose Atlas Digital Group
           </motion.div>
@@ -58,7 +58,7 @@ export default function SearchChanged() {
               works together to support measurable business growth.
             </motion.p>
 
-            <div className="w-16 sm:w-20 h-[2px] bg-gradient-to-r from-[#eeba00] to-[#e46e00]" />
+            <div className="w-16 sm:w-20 h-[2px] bg-gradient-to-r from-atlas-gold to-[#e46e00]" />
           </div>
 
           {/* Right column — circular video */}

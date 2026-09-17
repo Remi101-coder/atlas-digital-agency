@@ -20,7 +20,7 @@ export default function Luminr() {
               <span className="text-4xl font-unbounded font-black tracking-widest text-[#010b0c]">
                 GROW
               </span>
-              <span className="text-4xl font-unbounded font-black tracking-widest text-amber-400">
+              <span className="text-4xl font-unbounded font-black tracking-widest text-atlas-gold">
                 TH
               </span>
             </motion.div>
@@ -34,10 +34,10 @@ export default function Luminr() {
                 transition={{ duration: 0.8 }}
                 className="w-full h-44 bg-slate-100 rounded-3xl border border-slate-300 overflow-hidden flex items-center justify-center text-slate-500 font-unbounded text-xs relative"
               >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#eeba00]/10 via-[#eeba00]/5 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-atlas-gold/10 via-atlas-gold/5 to-transparent pointer-events-none" />
               <svg className="absolute bottom-0 left-0 w-full h-full text-slate-300 stroke-current opacity-70" fill="none" viewBox="0 0 800 200">
                 <path d="M0 150 Q150 100 300 130 T600 70 T800 130" strokeWidth="2" />
-                <path d="M0 120 Q120 70 240 100 T500 60 T800 100" strokeWidth="2" className="text-amber-400" />
+                <path d="M0 120 Q120 70 240 100 T500 60 T800 100" strokeWidth="2" className="text-atlas-gold" />
               </svg>
               <span className="relative z-10 font-bold uppercase tracking-[0.2em] text-[#010b0c]/60">
                 OUR PROVEN GROWTH PROCESS
@@ -89,7 +89,7 @@ export default function Luminr() {
                   transition={{ duration: 0.5 }}
                   className="rounded-3xl border border-slate-300 p-6 bg-slate-100"
                 >
-                  <div className="text-amber-400 text-xs tracking-[0.25em] uppercase font-unbounded font-bold mb-3">
+                  <div className="text-atlas-gold text-xs tracking-[0.25em] uppercase font-unbounded font-bold mb-3">
                     Step {item.step}
                   </div>
                   <h3 className="text-xl font-bold text-[#010b0c] mb-2">{item.title}</h3>
@@ -100,7 +100,7 @@ export default function Luminr() {
 
             <Link
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-3 bg-[#eeba00] text-[#010b0c] font-bold rounded-full text-sm hover:bg-white hover:text-[#010b0c] transition-all font-unbounded"
+              className="inline-flex items-center justify-center px-8 py-3 bg-atlas-gold text-[#010b0c] font-bold rounded-full text-sm hover:bg-white hover:text-[#010b0c] transition-all font-unbounded"
             >
               Start Your Growth Plan
             </Link>
@@ -114,12 +114,12 @@ export default function Luminr() {
               transition={{ duration: 0.8 }}
               className="rounded-3xl overflow-hidden shadow-2xl border border-slate-300 bg-slate-950 p-10"
             >
-              <div className="space-y-6 text-white">
+              <div className="space-y-6 text-atlas-cream">
                 <div>
-                  <span className="text-xs uppercase tracking-[0.25em] text-amber-400 font-unbounded font-bold">
+                  <span className="text-xs uppercase tracking-[0.25em] text-atlas-gold font-unbounded font-bold">
                     PROCESS HIGHLIGHTS
                   </span>
-                  <h3 className="mt-4 text-4xl font-black leading-tight">Built to scale your revenue and simplify your operations.</h3>
+                  <h3 className="mt-2 text-2xl font-black leading-tight">Built to scale your revenue and simplify your operations.</h3>
                 </div>
                 <div className="grid gap-4">
                   <div className="rounded-3xl bg-[#111517] p-5">

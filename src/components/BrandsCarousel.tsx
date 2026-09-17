@@ -17,7 +17,7 @@ export default function BrandsCarousel() {
   ];
 
   return (
-    <section className="w-full bg-slate-950 text-white  overflow-visible z-10 relative">
+    <section className="w-full bg-slate-950 text-atlas-cream  overflow-visible z-10 relative">
       <div className="max-w-6xl mx-auto px-6 mb-8 text-center">
         <motion.h6
           initial={{ opacity: 0 }}
@@ -38,7 +38,7 @@ export default function BrandsCarousel() {
             {technologies.map((name) => (
               <div
                 key={name}
-                className="flex items-center justify-center min-w-[120px] sm:min-w-[150px] h-12 text-zinc-500 font-unbounded font-semibold tracking-wider text-base sm:text-xl select-none hover:text-white transition-colors duration-300"
+                className="flex items-center justify-center min-w-[120px] sm:min-w-[150px] h-12 text-zinc-500 font-unbounded font-semibold tracking-wider text-base sm:text-xl select-none hover:text-atlas-cream transition-colors duration-300"
               >
                 <span className="uppercase text-sm tracking-[0.25em]">{name}</span>
               </div>
@@ -49,7 +49,7 @@ export default function BrandsCarousel() {
             {technologies.map((name) => (
               <div
                 key={name}
-                className="flex items-center justify-center min-w-[120px] sm:min-w-[150px] h-12 text-zinc-500 font-unbounded font-semibold tracking-wider text-base sm:text-xl select-none hover:text-white transition-colors duration-300"
+                className="flex items-center justify-center min-w-[120px] sm:min-w-[150px] h-12 text-zinc-500 font-unbounded font-semibold tracking-wider text-base sm:text-xl select-none hover:text-atlas-cream transition-colors duration-300"
               >
                 <span className="uppercase text-sm tracking-[0.25em]">{name}</span>
               </div>

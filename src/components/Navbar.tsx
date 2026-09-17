@@ -119,7 +119,7 @@ export default function Navbar() {
               >
                 <button
                   onClick={() => setServicesOpen((v) => !v)}
-                  className="flex items-center gap-1 text-white/90 hover:text-atlas-gold text-sm font-medium tracking-wide transition-colors py-2"
+                  className="flex items-center gap-1 text-atlas-cream/90 hover:text-atlas-gold text-sm font-medium tracking-wide transition-colors py-2"
                   aria-expanded={servicesOpen}
                   aria-haspopup="true"
                 >
@@ -136,7 +136,7 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-white/90 hover:text-atlas-gold text-sm font-medium tracking-wide transition-colors py-2"
+                  className="text-atlas-cream/90 hover:text-atlas-gold text-sm font-medium tracking-wide transition-colors py-2"
                 >
                   {item.label}
                 </Link>
@@ -146,12 +146,12 @@ export default function Navbar() {
             {/* Right side */}
             <div className="flex items-center gap-3">
               <a
-                href="tel:+447355890373"
+                href="tel:+442039515886"
                 aria-label="Call Atlas Digital Group"
                 className="hidden lg:inline-flex items-center gap-2 whitespace-nowrap border border-atlas-gold/40 bg-transparent text-atlas-gold text-xs font-semibold px-4 py-2 rounded-full hover:border-atlas-gold transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 flex-shrink-0" />
-                +44 7355 890373
+                +44 20 3951 5886
               </a>
               <a
                 href="https://wa.me/447355890373"
@@ -165,7 +165,7 @@ export default function Navbar() {
               </a>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+                className="lg:hidden text-atlas-cream p-2 rounded-lg hover:bg-white/10 transition-colors"
                 aria-label="Toggle menu"
               >
                 {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -204,7 +204,7 @@ export default function Navbar() {
               <div className="mb-2">
                 <button
                   onClick={() => setMobileServicesOpen((v) => !v)}
-                  className="w-full flex items-center justify-between py-4 border-b border-white/10 text-white font-medium text-lg"
+                  className="w-full flex items-center justify-between py-4 border-b border-white/10 text-atlas-cream font-medium text-lg"
                 >
                   Services
                   <ChevronDown
@@ -234,7 +234,7 @@ export default function Navbar() {
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="block py-4 border-b border-white/10 text-white font-medium text-lg hover:text-atlas-gold transition-colors"
+                    className="block py-4 border-b border-white/10 text-atlas-cream font-medium text-lg hover:text-atlas-gold transition-colors"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.label}
@@ -242,14 +242,27 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <div className="mt-8">
-                <Link
-                  href="#contact"
-                  className="block w-full text-center bg-atlas-gold text-slate-950 font-bold py-4 rounded-full text-lg hover:bg-[#e6c698] transition-colors"
+              <div className="mt-8 space-y-3">
+                <a
+                  href="tel:+442039515886"
+                  aria-label="Call Atlas Digital Group"
+                  className="flex items-center justify-center gap-2 w-full border border-atlas-gold/40 text-atlas-gold font-bold py-4 rounded-full text-lg hover:border-atlas-gold transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Get in touch
-                </Link>
+                  <Phone className="w-5 h-5" />
+                  +44 20 3951 5886
+                </a>
+                <a
+                  href="https://wa.me/447355890373"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Message Atlas Digital Group on WhatsApp"
+                  className="flex items-center justify-center gap-2 w-full border border-atlas-gold/40 text-emerald-400 font-bold py-4 rounded-full text-lg hover:border-atlas-gold transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  WhatsApp us
+                </a>
               </div>
             </div>
           </motion.div>

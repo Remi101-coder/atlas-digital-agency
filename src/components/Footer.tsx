@@ -18,15 +18,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-slate-950 text-white pt-24 pb-12 z-10 relative overflow-hidden border-t border-slate-800">
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#eeba00] via-[#e46e00] to-[#8db5f3]" />
+    <footer className="w-full bg-slate-950 text-atlas-cream pt-24 pb-12 z-10 relative overflow-hidden border-t border-slate-800">
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-atlas-gold via-[#e46e00] to-[#8db5f3]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-zinc-800/80 pb-12">
           <div className="lg:col-span-12 space-y-4">
             <div className="text-lg md:text-xl font-unbounded font-semibold text-atlas-gold">
               Reach us at{` `}
-              <a href={`mailto:${contactDetails.email}`} className="hover:text-white transition-colors">
+              <a href={`mailto:${contactDetails.email}`} className="hover:text-atlas-cream transition-colors">
                 {contactDetails.email}
               </a>
             </div>
@@ -45,27 +45,27 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pb-12 border-b border-zinc-800/80">
           <div className="space-y-4">
-            <h5 className="font-unbounded font-bold text-[#eeba00] text-xs uppercase tracking-widest">
+            <h5 className="font-unbounded font-bold text-atlas-gold text-xs uppercase tracking-widest">
               NAVIGATION
             </h5>
             <div className="grid grid-cols-2 gap-2">
-              <Link href="/" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
+              <Link href="/" className="text-slate-400 hover:text-atlas-cream transition-colors text-sm font-light font-barlow">
                 Home
               </Link>
-              <Link href="#about" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
+              <Link href="#about" className="text-slate-400 hover:text-atlas-cream transition-colors text-sm font-light font-barlow">
                 About
               </Link>
-              <Link href="#services" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
+              <Link href="#services" className="text-slate-400 hover:text-atlas-cream transition-colors text-sm font-light font-barlow">
                 Services
               </Link>
-              <Link href="#contact" className="text-slate-400 hover:text-white transition-colors text-sm font-light font-barlow">
+              <Link href="#contact" className="text-slate-400 hover:text-atlas-cream transition-colors text-sm font-light font-barlow">
                 Contact
               </Link>
             </div>
           </div>
 
           <div className="space-y-4">
-            <h5 className="font-unbounded font-bold text-[#eeba00] text-xs uppercase tracking-widest">
+            <h5 className="font-unbounded font-bold text-atlas-gold text-xs uppercase tracking-widest">
               SERVICES
             </h5>
             <div className="grid grid-cols-2 gap-2">
@@ -73,7 +73,7 @@ export default function Footer() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-zinc-400 hover:text-white transition-colors text-sm font-light font-barlow"
+                  className="text-zinc-400 hover:text-atlas-cream transition-colors text-sm font-light font-barlow"
                 >
                   {link.name}
                 </Link>

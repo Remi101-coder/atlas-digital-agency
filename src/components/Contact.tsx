@@ -29,7 +29,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="w-full bg-slate-950 text-white py-24 z-10 relative overflow-hidden">
+    <section id="contact" className="w-full bg-slate-950 text-atlas-cream py-24 z-10 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5 space-y-6">
@@ -53,19 +53,28 @@ export default function Contact() {
             </motion.p>
             <div className="space-y-4 text-sm text-slate-400 font-light">
               <div>
-                <strong className="text-white">Email:</strong>{" "}
+                <strong className="text-atlas-cream">Email:</strong>{" "}
                 <a href={`mailto:${contactDetails.email}`} className="transition-colors hover:text-atlas-gold">{contactDetails.email}</a>
               </div>
               <div>
-                <strong className="text-white">Phone:</strong>{" "}
+                <strong className="text-atlas-cream">Phone:</strong>{" "}
                 <a href={contactDetails.phoneHref} className="transition-colors hover:text-atlas-gold">{contactDetails.phone}</a>
               </div>
               <div>
-                <strong className="text-white">Location:</strong> ATLAS DIGITAL GROUP LTD, 19 Abigail House, 1 Richards Close, Harrow, England, HA1 2BX
+                <strong className="text-atlas-cream block mb-1">Location:</strong>
+                <address className="not-italic leading-relaxed">
+                  ATLAS DIGITAL GROUP LTD<br />
+                  Company No. 17321140<br />
+                  VAT No. GB524398671<br />
+                  19 Abigail House<br />
+                  1 Richards Close<br />
+                  Harrow, England<br />
+                  HA1 2BX
+                </address>
               </div>
               <div className="flex flex-wrap gap-3 pt-2">
                 {socialLinks.map((social) => {
-                  return <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`Atlas Digital Group on ${social.name}`} title={social.name} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-colors hover:border-amber-400 hover:text-amber-400"><SocialIcon name={social.name} className="h-4 w-4" /></a>;
+                  return <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`Atlas Digital Group on ${social.name}`} title={social.name} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-colors hover:border-atlas-gold hover:text-atlas-gold"><SocialIcon name={social.name} className="h-4 w-4" /></a>;
                 })}
               </div>
             </div>
@@ -88,7 +97,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="mt-2 w-full rounded-3xl border border-zinc-700 bg-[#020405] px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-[#eeba00]"
+                  className="mt-2 w-full rounded-3xl border border-zinc-700 bg-[#020405] px-4 py-3 text-atlas-cream placeholder:text-zinc-600 focus:outline-none focus:border-atlas-gold"
                   placeholder="Your name"
                 />
               </label>
@@ -100,7 +109,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="mt-2 w-full rounded-3xl border border-zinc-700 bg-[#020405] px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-[#eeba00]"
+                  className="mt-2 w-full rounded-3xl border border-zinc-700 bg-[#020405] px-4 py-3 text-atlas-cream placeholder:text-zinc-600 focus:outline-none focus:border-atlas-gold"
                   placeholder="your@email.com"
                 />
               </label>
@@ -111,7 +120,7 @@ export default function Contact() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="mt-2 w-full rounded-3xl border border-zinc-700 bg-[#020405] px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-[#eeba00]"
+                  className="mt-2 w-full rounded-3xl border border-zinc-700 bg-[#020405] px-4 py-3 text-atlas-cream placeholder:text-zinc-600 focus:outline-none focus:border-atlas-gold"
                   placeholder="Business name"
                 />
               </label>
@@ -122,25 +131,25 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="mt-2 w-full rounded-3xl border border-zinc-700 bg-[#020405] px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-[#eeba00]"
+                  className="mt-2 w-full rounded-3xl border border-zinc-700 bg-[#020405] px-4 py-3 text-atlas-cream placeholder:text-zinc-600 focus:outline-none focus:border-atlas-gold"
                   placeholder="Tell us about your project"
                 />
               </label>
             </div>
             <button
               type="submit"
-              className="mt-6 w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#eeba00] px-8 py-4 text-sm font-bold text-[#010b0c] uppercase tracking-[0.2em] hover:bg-white transition-all"
+              className="mt-6 w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-atlas-gold px-8 py-4 text-sm font-bold text-[#010b0c] uppercase tracking-[0.2em] hover:bg-white transition-all"
             >
               Book A Free Consultation
             </button>
           </motion.form>
           <div className="lg:col-span-7 rounded-3xl border border-slate-700 bg-slate-900/40 p-5 text-slate-300">
-            <p className="mb-4 text-xs font-unbounded uppercase tracking-[0.2em] text-amber-400">Connect with Atlas</p>
+            <p className="mb-4 text-xs font-unbounded uppercase tracking-[0.2em] text-atlas-gold">Connect with Atlas</p>
             <div className="flex flex-wrap gap-3">
-              <a href={`mailto:${contactDetails.email}`} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-amber-400 hover:text-amber-400"><Mail className="h-4 w-4" />Email</a>
-              <a href={contactDetails.phoneHref} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-amber-400 hover:text-amber-400"><Phone className="h-4 w-4" />Call</a>
-              <a href={contactDetails.whatsappHref} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-amber-400 hover:text-amber-400"><MessageCircle className="h-4 w-4" />WhatsApp</a>
-              {socialLinks.map((social) => <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`Atlas Digital Group on ${social.name}`} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-amber-400 hover:text-amber-400"><SocialIcon name={social.name} className="h-4 w-4" />{social.name}</a>)}
+              <a href={`mailto:${contactDetails.email}`} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-atlas-gold hover:text-atlas-gold"><Mail className="h-4 w-4" />Email</a>
+              <a href={contactDetails.phoneHref} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-atlas-gold hover:text-atlas-gold"><Phone className="h-4 w-4" />Call</a>
+              <a href={contactDetails.whatsappHref} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-atlas-gold hover:text-atlas-gold"><MessageCircle className="h-4 w-4" />WhatsApp</a>
+              {socialLinks.map((social) => <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`Atlas Digital Group on ${social.name}`} className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-4 py-2 text-sm transition-colors hover:border-atlas-gold hover:text-atlas-gold"><SocialIcon name={social.name} className="h-4 w-4" />{social.name}</a>)}
             </div>
           </div>
         </div>
