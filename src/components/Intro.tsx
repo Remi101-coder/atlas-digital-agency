@@ -28,7 +28,7 @@ export default function Intro() {
         <ScrollReveal delay={0.3}>
           <div className="max-w-3xl space-y-6 text-slate-300 font-body text-base sm:text-lg md:text-xl font-light leading-relaxed">
             <p>
-              Atlas Digital Group is a full-service agency built for business who want more revenue, more efficeiency, and better results. We optimize not just for isolated clicks, but for how your brand shows up across search, targeted digital marketing, smart automation, and virtual assistance into one growth system.
+              Atlas Digital Group is a full-service agency built for businesses who want more revenue, more efficiency, and better results. We optimise not just for isolated clicks, but for how your brand shows up across search. We bring together websites, targeted digital marketing, smart automation, and virtual assistance into one growth system.
             </p>
             <div className="pt-2">
               <span className="font-display font-bold text-sm sm:text-base tracking-[0.15em] text-[#eeba00] uppercase">

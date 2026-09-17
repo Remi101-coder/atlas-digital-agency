@@ -54,14 +54,14 @@ export default function Contact() {
             <div className="space-y-4 text-sm text-slate-400 font-light">
               <div>
                 <strong className="text-white">Email:</strong>{" "}
-                <a href={`mailto:${contactDetails.email}`} className="transition-colors hover:text-amber-400">{contactDetails.email}</a>
+                <a href={`mailto:${contactDetails.email}`} className="transition-colors hover:text-atlas-gold">{contactDetails.email}</a>
               </div>
               <div>
                 <strong className="text-white">Phone:</strong>{" "}
-                <a href="tel:" className="transition-colors hover:text-amber-400">+XX XXX XXX XXXX</a>
+                <a href={contactDetails.phoneHref} className="transition-colors hover:text-atlas-gold">{contactDetails.phone}</a>
               </div>
               <div>
-                <strong className="text-white">Location:</strong> Remote-first agency serving businesses worldwide
+                <strong className="text-white">Location:</strong> ATLAS DIGITAL GROUP LTD, 19 Abigail House, 1 Richards Close, Harrow, England, HA1 2BX
               </div>
               <div className="flex flex-wrap gap-3 pt-2">
                 {socialLinks.map((social) => {

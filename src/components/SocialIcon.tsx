@@ -8,9 +8,16 @@ const paths = {
   LinkedIn: "M5 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5ZM3 10h4v11H3V10Zm6 0h3.8v1.5h.05A4.16 4.16 0 0 1 16.6 10c4 0 4.4 2.63 4.4 6.05V21h-4v-4.39c0-1.05-.02-2.4-1.5-2.4s-1.7 1.17-1.7 2.32V21H9V10Z",
 } as const;
 
-export default function SocialIcon({ name, ...props }: { name: keyof typeof paths } & SVGProps<SVGSVGElement>) {
+export default function SocialIcon({
+  name,
+  label,
+  ...props
+}: { name: keyof typeof paths; label?: string } & SVGProps<SVGSVGElement>) {
+  // Named directly so the icon carries its own accessible name (e.g. "Atlas
+  // Digital Group on LinkedIn") even if a call site forgets aria-label on
+  // the wrapping link — the URL text was the only fallback name before this.
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+    <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label={label ?? `Atlas Digital Group on ${name}`} {...props}>
       <path d={paths[name]} />
     </svg>
   );

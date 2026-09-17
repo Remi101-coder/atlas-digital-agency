@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { MessageCircle, Phone } from "lucide-react";
 import { contactDetails, socialLinks } from "@/lib/contact-links";
 import SocialIcon from "@/components/SocialIcon";
 
@@ -24,25 +24,19 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b border-zinc-800/80 pb-12">
           <div className="lg:col-span-12 space-y-4">
-            <div className="text-lg md:text-xl font-unbounded font-semibold text-amber-400">
+            <div className="text-lg md:text-xl font-unbounded font-semibold text-atlas-gold">
               Reach us at{` `}
               <a href={`mailto:${contactDetails.email}`} className="hover:text-white transition-colors">
                 {contactDetails.email}
               </a>
             </div>
             <div className="flex flex-wrap gap-4 text-sm text-slate-300">
-              <a href={contactDetails.phoneHref} className="inline-flex items-center gap-2 transition-colors hover:text-amber-400"><Phone className="h-4 w-4" />{contactDetails.phone}</a>
-              <a href={contactDetails.whatsappHref} className="inline-flex items-center gap-2 transition-colors hover:text-amber-400"><MessageCircle className="h-4 w-4" />WhatsApp</a>
-              <a href={`mailto:${contactDetails.email}`} className="inline-flex items-center gap-2 transition-colors hover:text-amber-400"><Mail className="h-4 w-4" />Email us</a>
+              <a href={contactDetails.phoneHref} className="inline-flex items-center gap-2 transition-colors hover:text-atlas-gold"><Phone className="h-4 w-4" />{contactDetails.phone}</a>
+              <a href={contactDetails.whatsappHref} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-atlas-gold"><MessageCircle className="h-4 w-4" />WhatsApp</a>
             </div>
-            <div className="grid gap-x-6 gap-y-1 text-xs text-slate-500 sm:grid-cols-2">
-              <a href={`mailto:${contactDetails.marketingEmail}`} className="hover:text-amber-400">Marketing: {contactDetails.marketingEmail}</a>
-              <a href={`mailto:${contactDetails.webEmail}`} className="hover:text-amber-400">Web: {contactDetails.webEmail}</a>
-              <a href={`mailto:${contactDetails.automationEmail}`} className="hover:text-amber-400">Automation: {contactDetails.automationEmail}</a>
-              <a href={`mailto:${contactDetails.supportEmail}`} className="hover:text-amber-400">Support: {contactDetails.supportEmail}</a>
-              <a href={`mailto:${contactDetails.careersEmail}`} className="hover:text-amber-400">Careers: {contactDetails.careersEmail}</a>
-              <a href={`mailto:${contactDetails.privacyEmail}`} className="hover:text-amber-400">Privacy: {contactDetails.privacyEmail}</a>
-            </div>
+            <a href={`mailto:${contactDetails.privacyEmail}`} className="block text-xs text-slate-500 hover:text-atlas-gold transition-colors">
+              Privacy: {contactDetails.privacyEmail}
+            </a>
             <p className="text-slate-500 font-barlow text-xs leading-relaxed max-w-md">
               We respect your privacy and only use your contact details to plan your project, share relevant advice and support your business growth.
             </p>
@@ -96,7 +90,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-3">
             {socialLinks.map((social) => {
               return (
-                <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`Atlas Digital Group on ${social.name}`} title={social.name} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-colors hover:border-amber-400 hover:text-amber-400">
+                <a key={social.name} href={social.href} target="_blank" rel="noreferrer" aria-label={`Atlas Digital Group on ${social.name}`} title={social.name} className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-700 text-slate-400 transition-colors hover:border-atlas-gold hover:text-atlas-gold">
                   <SocialIcon name={social.name} className="h-4 w-4" />
                 </a>
               );

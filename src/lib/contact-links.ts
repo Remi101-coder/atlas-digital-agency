@@ -7,7 +7,7 @@ export const socialLinks = [
 ] as const;
 
 export const contactDetails = {
-  email: "projects@atlasdigitalgroup.co.uk",
+  email: "office@atlasdigitalgroup.co.uk",
   projectsEmail: "projects@atlasdigitalgroup.co.uk",
   marketingEmail: "marketing@atlasdigitalgroup.co.uk",
   socialEmail: "social@atlasdigitalgroup.co.uk",

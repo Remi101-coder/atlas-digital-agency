@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { X, Menu, ChevronDown } from "lucide-react";
+import { X, Menu, ChevronDown, Phone, MessageCircle } from "lucide-react";
 import { ServicesMegaMenu } from "./ServicesMegaMenu";
 
 const navItems = [
@@ -145,12 +145,24 @@ export default function Navbar() {
 
             {/* Right side */}
             <div className="flex items-center gap-3">
-              <Link
-                href="#contact"
-                className="hidden lg:inline-flex items-center gap-2 bg-atlas-gold text-slate-950 text-sm font-bold px-6 py-2.5 rounded-full hover:bg-[#e6c698] transition-colors"
+              <a
+                href="tel:+447355890373"
+                aria-label="Call Atlas Digital Group"
+                className="hidden lg:inline-flex items-center gap-2 whitespace-nowrap border border-atlas-gold/40 bg-transparent text-atlas-gold text-xs font-semibold px-4 py-2 rounded-full hover:border-atlas-gold transition-colors"
               >
-                Get in touch
-              </Link>
+                <Phone className="w-3.5 h-3.5 flex-shrink-0" />
+                +44 7355 890373
+              </a>
+              <a
+                href="https://wa.me/447355890373"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Message Atlas Digital Group on WhatsApp"
+                className="hidden lg:inline-flex items-center gap-2 whitespace-nowrap border border-atlas-gold/40 bg-transparent text-emerald-400 text-xs font-semibold px-4 py-2 rounded-full hover:border-atlas-gold transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5 flex-shrink-0" />
+                WhatsApp us
+              </a>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 className="lg:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
