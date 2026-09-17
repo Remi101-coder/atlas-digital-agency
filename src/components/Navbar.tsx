@@ -95,16 +95,16 @@ export default function Navbar() {
       >
         {/* Inner row */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
-          <div className="flex items-center justify-between h-24 sm:h-[84px]">
+          <div className="flex items-center justify-between h-24">
 
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 z-10">
               <Image
-                src="/atlas-logo-navbar.png?v=2"
+                src="/atlas-logo-navbar.png?v=3"
                 alt="Atlas Digital Group"
-                width={86}
-                height={34}
-                className="h-[26px] md:h-[34px] w-auto object-contain"
+                width={132}
+                height={52}
+                className="h-[38px] md:h-[52px] w-auto object-contain"
                 priority
               />
             </Link>
