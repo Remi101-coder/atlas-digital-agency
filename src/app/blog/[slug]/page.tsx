@@ -7,6 +7,14 @@ import Footer from "@/components/Footer";
 import { estimateReadingTime, formatDate, renderRichText } from "@/lib/blog";
 import { getBlogPostBySlug, getRelatedBlogPosts } from "@/lib/blog-server";
 
+// Featured-image captions from the source article document. There is no
+// schema column for this, so they are keyed by slug here instead.
+const FEATURED_IMAGE_CAPTIONS: Record<string, string> = {
+  "ai-that-earns-its-keep": "A small business owner handles everyday digital work in a bright office.",
+  "a-beautiful-website-is-not-enough": "A designer checks how the same website works across a laptop, tablet and smartphone.",
+  "how-customers-will-find-your-business-in-the-age-of-ai-search": "A shop owner reviews online search visibility and customer analytics from her business.",
+};
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
@@ -86,9 +94,14 @@ export default async function PublicBlogPostPage({ params }: { params: Promise<{
           <figure className="mx-auto mt-10 max-w-5xl">
             <img
               src={post.featured_image_url}
-              alt={post.title}
+              alt={FEATURED_IMAGE_CAPTIONS[post.slug] ?? post.title}
               className="w-full rounded-3xl object-cover max-h-[480px]"
             />
+            {FEATURED_IMAGE_CAPTIONS[post.slug] ? (
+              <figcaption className="mt-3 text-center text-sm italic text-atlas-cream/60">
+                {FEATURED_IMAGE_CAPTIONS[post.slug]}
+              </figcaption>
+            ) : null}
           </figure>
         ) : null}
 
