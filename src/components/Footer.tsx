@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MessageCircle, Phone } from "lucide-react";
 import { contactDetails, socialLinks } from "@/lib/contact-links";
 import SocialIcon from "@/components/SocialIcon";
+import { OPEN_COOKIE_SETTINGS_EVENT } from "@/lib/cookie-consent";
 
 export default function Footer() {
   const serviceLinks = [
@@ -96,6 +97,20 @@ export default function Footer() {
               );
             })}
           </div>
+        </div>
+
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-slate-500">
+          <Link href="/privacy-policy" className="hover:text-atlas-gold transition-colors">
+            Privacy Policy
+          </Link>
+          <span className="text-slate-700">|</span>
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS_EVENT))}
+            className="hover:text-atlas-gold transition-colors"
+          >
+            Cookie Settings
+          </button>
         </div>
 
         <div className="text-center text-[11px] text-slate-600 font-light">

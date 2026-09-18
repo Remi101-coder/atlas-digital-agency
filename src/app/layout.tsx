@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow, Noto_Serif_Display, Unbounded } from "next/font/google";
 import "./globals.css";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -68,6 +69,7 @@ export default function RootLayout({
         className={`${barlow.variable} ${notoSerif.variable} ${unbounded.variable} antialiased font-barlow`}
       >
         {children}
+        <CookieConsentBanner />
       </body>
     </html>
   );
